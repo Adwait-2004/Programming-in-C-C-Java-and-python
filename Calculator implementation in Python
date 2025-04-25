@@ -1,0 +1,46 @@
+import math
+
+# Reading two numbers from the user
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Ask for operation
+print("Operations: + (add), - (subtract), * (multiply), / (divide), ^ (power), % (modulus), r (square root)")
+operation = input("Choose operation: ")
+
+# Perform operations using conditional statements
+if operation == '+':
+    result = num1 + num2
+    print(f"Result: {num1} + {num2} = {result}")
+elif operation == '-':
+    result = num1 - num2
+    print(f"Result: {num1} - {num2} = {result}")
+elif operation == '*':
+    result = num1 * num2
+    print(f"Result: {num1} * {num2} = {result}")
+elif operation == '/':
+    # Handle division by zero
+    if num2 == 0:
+        print("Error: Division by zero is not allowed!")
+    else:
+        result = num1 / num2
+        print(f"Result: {num1} / {num2} = {result}")
+elif operation == '^':
+    result = num1 ** num2
+    print(f"Result: {num1} ^ {num2} = {result}")
+elif operation == '%':
+    # Handle modulus with non-integer values or division by zero
+    if num2 == 0:
+        print("Error: Modulo by zero is not allowed!")
+    else:
+        result = num1 % num2
+        print(f"Result: {num1} % {num2} = {result}")
+elif operation == 'r':
+    # For square root, we'll use only the first number
+    if num1 < 0:
+        print("Error: Cannot calculate square root of a negative number!")
+    else:
+        result = math.sqrt(num1)
+        print(f"Result: Square root of {num1} = {result}")
+else:
+    print("Invalid operation selected!")
