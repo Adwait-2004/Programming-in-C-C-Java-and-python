@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double num1, num2, result;
+    char operation;
+    
+    // Reading two numbers from the user
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    // Ask for operation
+    cout << "Choose operation (+, -, *, /, ^, %, r for square root): ";
+    cin >> operation;
+    
+    // Perform operations using conditional statements
+    if (operation == '+') {
+        result = num1 + num2;
+        cout << "Result: " << num1 << " + " << num2 << " = " << result << endl;
+    }
+    else if (operation == '-') {
+        result = num1 - num2;
+        cout << "Result: " << num1 << " - " << num2 << " = " << result << endl;
+    }
+    else if (operation == '*') {
+        result = num1 * num2;
+        cout << "Result: " << num1 << " * " << num2 << " = " << result << endl;
+    }
+    else if (operation == '/') {
+        // Handle division by zero
+        if (num2 == 0) {
+            cout << "Error: Division by zero is not allowed!" << endl;
+        } else {
+            result = num1 / num2;
+            cout << "Result: " << num1 << " / " << num2 << " = " << result << endl;
+        }
+    }
+    else if (operation == '^') {
+        result = pow(num1, num2);
+        cout << "Result: " << num1 << " ^ " << num2 << " = " << result << endl;
+    }
+    else if (operation == '%') {
+        // Handle modulus with non-integer values or division by zero
+        if (num2 == 0) {
+            cout << "Error: Modulo by zero is not allowed!" << endl;
+        } else {
+            result = fmod(num1, num2);  // Using fmod for floating-point modulus
+            cout << "Result: " << num1 << " % " << num2 << " = " << result << endl;
+        }
+    }
+    else if (operation == 'r') {
+        // For square root, we'll use only the first number
+        if (num1 < 0) {
+            cout << "Error: Cannot calculate square root of a negative number!" << endl;
+        } else {
+            result = sqrt(num1);
+            cout << "Result: Square root of " << num1 << " = " << result << endl;
+        }
+    }
+    else {
+        cout << "Invalid operation selected!" << endl;
+    }
+    
+    return 0;
+}
